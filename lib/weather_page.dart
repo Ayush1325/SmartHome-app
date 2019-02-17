@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class WeatherPage extends StatefulWidget {
 
@@ -7,10 +8,6 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPage extends State<StatefulWidget> {
-
-  IconData _iconData = Icons.wb_sunny;
-  double _temp = 0.0;
-  int _hmd = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,35 +16,55 @@ class _WeatherPage extends State<StatefulWidget> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              _iconData,
-              size: 300,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    _temp.toString() + "\u00b0" + "C",
-                    style: TextStyle(
-                      fontSize: 52,
-                    ),
+        child: StreamBuilder(
+          stream: Firestore.instance.collection('home').document('weather').snapshots(),
+          builder: (context, snapshots) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  weatherIcon(snapshots.data['cloud'], snapshots.data['rain']),
+                  size: 300,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Text(
+                        snapshots.data['temp'].toString() + "\u00b0" + "C",
+                        style: TextStyle(
+                          fontSize: 52,
+                        ),
+                      ),
+                      Text(
+                        snapshots.data['humidity'].toString() + "%",
+                        style: TextStyle(
+                          fontSize: 52,
+                        ),),
+                    ],
                   ),
-                  Text(
-                    _hmd.toString() + "%",
-                    style: TextStyle(
-                      fontSize: 52,
-                    ),),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          }
         ),
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  IconData weatherIcon(bool cloud, bool rain) {
+    if(rain){
+      return Icons.grain;
+    } else if (cloud) {
+      return Icons.wb_cloudy;
+    }
+    return Icons.wb_sunny;
+  }
+
 }
