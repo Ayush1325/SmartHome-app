@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DeviceControls(),
+      routes: <String, WidgetBuilder> {
+        "/home": (BuildContext context) => WeatherPage(),
+        "/devices": (BuildContext context) => DeviceControls(),
+      },
+      home: WeatherPage(),
     );
   }
 }

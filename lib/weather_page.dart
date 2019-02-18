@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'drawer_widget.dart';
 
 class WeatherPage extends StatefulWidget {
 
@@ -14,9 +15,13 @@ class _WeatherPage extends State<StatefulWidget> {
       appBar: AppBar(
         title: Text("Home"),
       ),
+      drawer: Drawer(
+        child: DrawerWidget(),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: StreamBuilder(
+          initialData: {'cloud': false, 'rain': false, 'temp': 0, 'humidity': 0},
           stream: Firestore.instance.collection('home').document('weather').snapshots(),
           builder: (context, snapshots) {
             return Column(
