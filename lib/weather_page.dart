@@ -27,9 +27,14 @@ class _WeatherPage extends State<StatefulWidget> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(
+//                Icon(
+//                  weatherIcon(snapshots.data['cloud'], snapshots.data['rain']),
+//                  size: 300,
+//                ),
+                Image.asset(
                   weatherIcon(snapshots.data['cloud'], snapshots.data['rain']),
-                  size: 300,
+                  height: 300,
+                  width: 300,
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -63,13 +68,13 @@ class _WeatherPage extends State<StatefulWidget> {
     super.initState();
   }
 
-  IconData weatherIcon(bool cloud, bool rain) {
+  String weatherIcon(bool cloud, bool rain) {
     if(rain){
-      return Icons.grain;
+      return 'images/rain.png';
     } else if (cloud) {
-      return Icons.wb_cloudy;
+      return 'images/cloudy.png';
     }
-    return Icons.wb_sunny;
+    return 'images/sunny.png';
   }
 
 }
