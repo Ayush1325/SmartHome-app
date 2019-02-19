@@ -11,7 +11,7 @@ class DeviceControls extends StatefulWidget {
 
 class _DeviceControls extends State<DeviceControls> {
 
-  var list = [DeviceData('Light', false, 0, 'images/light-bulb.png'), DeviceData('Fan', false, 0, 'images/light-bulb.png')];
+  var list = [DeviceData('Light', false, 0, 'images/light-bulb.png'), DeviceData('Fan', false, 0, 'images/fan.png')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
