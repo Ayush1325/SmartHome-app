@@ -11,7 +11,7 @@ class DeviceControls extends StatefulWidget {
 
 class _DeviceControls extends State<DeviceControls> {
 
-  var list = [DeviceData('light', false, 0, Icons.lightbulb_outline), DeviceData('fan', false, 0, Icons.lightbulb_outline)];
+  var list = [DeviceData('Light', false, 0, 'images/light-bulb.png'), DeviceData('Fan', false, 0, 'images/light-bulb.png')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +38,17 @@ class _DeviceControls extends State<DeviceControls> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Expanded(child: Text(list[index].deviceName)),
+                      Expanded(child: Text(
+                        list[index].deviceName,
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                      )),
                       IconButton(
-                        icon: Icon(
-                          list[index].iconData,
+                        icon: ImageIcon(
+                          AssetImage(list[index].iconData),
+                          size: 48,
+                          color: list[index].toggleState? Colors.amberAccent : Colors.black,
                         ),
                         onPressed: () {
                           if(list[index].toggleState){

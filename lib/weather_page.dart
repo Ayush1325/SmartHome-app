@@ -27,10 +27,6 @@ class _WeatherPage extends State<StatefulWidget> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-//                Icon(
-//                  weatherIcon(snapshots.data['cloud'], snapshots.data['rain']),
-//                  size: 300,
-//                ),
                 Image.asset(
                   weatherIcon(snapshots.data['cloud'], snapshots.data['rain']),
                   height: 300,
