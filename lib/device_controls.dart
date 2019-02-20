@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'device_data.dart';
-import 'drawer_widget.dart';
 
 class DeviceControls extends StatefulWidget {
 
@@ -14,14 +13,7 @@ class _DeviceControls extends State<DeviceControls> {
   var list = [DeviceData('Light', false, 0, 'images/light-bulb.png'), DeviceData('Fan', false, 0, 'images/fan.png')];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Controlls"),
-      ),
-      drawer: Drawer(
-        child: DrawerWidget(),
-      ),
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.separated(
           itemCount: list.length,
@@ -92,7 +84,6 @@ class _DeviceControls extends State<DeviceControls> {
             );
           },
         ),
-      ),
     );
   }
 

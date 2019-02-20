@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'weather_page.dart';
-import 'device_controls.dart';
+import 'controller.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: <String, WidgetBuilder> {
         "/home": (BuildContext context) => WeatherPage(),
-        "/devices": (BuildContext context) => DeviceControls(),
+        "/controls": (BuildContext context) => Controller(),
       },
       home: WeatherPage(),
     );

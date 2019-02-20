@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
 
-  var list = [['Home', '/home'], ['Devices', '/devices']];
+  var list = [['Home', '/home'], ['Controls', '/controls']];
   @override
   Widget build(BuildContext context) {
     return ListView.separated(

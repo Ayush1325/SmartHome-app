@@ -43,6 +43,7 @@ flutter:
     - images/sunny.png
     - images/light-bulb.png
     - images/fan.png
+    - images/sensor.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
