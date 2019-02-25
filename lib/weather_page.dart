@@ -19,7 +19,7 @@ class _WeatherPage extends State<WeatherPage> {
         title: Text("Home"),
       ),
       drawer: Drawer(
-        child: DrawerWidget(),
+        child: DrawerWidget(firebaseHelper: widget.firebaseHelper,),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

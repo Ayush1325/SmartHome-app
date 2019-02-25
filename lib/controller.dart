@@ -29,7 +29,7 @@ class _Controller extends State<Controller> {
           ),
         ),
         drawer: Drawer(
-          child: DrawerWidget(),
+          child: DrawerWidget(firebaseHelper: widget.firebaseHelper,),
         ),
         body: TabBarView(
           children: [
