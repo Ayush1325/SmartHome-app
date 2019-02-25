@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'monitor_page.dart';
 import 'device_controls.dart';
 import 'drawer_widget.dart';
+import 'firebase_helper.dart';
 
 
 class Controller extends StatefulWidget {
 
+  final FirebaseHelper firebaseHelper;
+  Controller({Key key, this.firebaseHelper});
   @override
   _Controller createState() => _Controller();
 }
@@ -37,4 +40,12 @@ class _Controller extends State<Controller> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    widget.firebaseHelper.context = context;
+  }
+
+
 }

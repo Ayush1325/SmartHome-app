@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseHelper _firebaseHelper = FirebaseHelper();
+    _firebaseHelper.context = context;
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         "/home": (BuildContext context) => WeatherPage(),
         "/controls": (BuildContext context) => Controller(),
       },
-      home: WeatherPage(),
+      home: WeatherPage(firebaseHelper: _firebaseHelper,),
     );
   }
 }

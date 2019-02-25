@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'drawer_widget.dart';
+import 'firebase_helper.dart';
 
 class WeatherPage extends StatefulWidget {
 
+  final FirebaseHelper firebaseHelper;
+  WeatherPage({Key key, this.firebaseHelper});
   @override
   _WeatherPage createState() => _WeatherPage();
 }
 
-class _WeatherPage extends State<StatefulWidget> {
+class _WeatherPage extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +65,7 @@ class _WeatherPage extends State<StatefulWidget> {
   @override
   void initState() {
     super.initState();
+    widget.firebaseHelper.context = context;
   }
 
   String weatherIcon(bool cloud, bool rain) {
