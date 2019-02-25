@@ -10,7 +10,7 @@ class DeviceControls extends StatefulWidget {
 
 class _DeviceControls extends State<DeviceControls> {
 
-  var list = [DeviceData('Light', false, 0, 'images/light-bulb.png'), DeviceData('Fan', false, 0, 'images/fan.png')];
+  var list = [DeviceData('light', false, 0, 'images/light-bulb.png'), DeviceData('fan', false, 0, 'images/fan.png')];
   @override
   Widget build(BuildContext context) {
     return Padding(
