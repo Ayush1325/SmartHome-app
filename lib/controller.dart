@@ -3,6 +3,7 @@ import 'monitor_page.dart';
 import 'device_controls.dart';
 import 'drawer_widget.dart';
 import 'firebase_helper.dart';
+import 'system_calls.dart';
 
 
 class Controller extends StatefulWidget {
@@ -17,14 +18,15 @@ class _Controller extends State<Controller> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Controls'),
           bottom: TabBar(
             tabs: [
               Tab(text: 'Devices',),
-              Tab(text: 'Monitor',)
+              Tab(text: 'Monitor',),
+              Tab(text: 'System Calls',)
             ],
           ),
         ),
@@ -35,6 +37,7 @@ class _Controller extends State<Controller> {
           children: [
             DeviceControls(),
             MonitorPage(),
+            SystemCalls(),
           ],
         ),
       ),
