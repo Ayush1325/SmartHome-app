@@ -1,9 +1,8 @@
-class Door{
-  String name;
+class DoorData{
   String firebaseField;
   bool state;
   String onImg;
   String offImg;
 
-  Door(this.name, this.firebaseField, this.state, this.onImg, this.offImg);
+  DoorData(this.firebaseField, this.state, this.onImg, this.offImg);
 }
